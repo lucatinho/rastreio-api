@@ -19,7 +19,7 @@ class App {
 
     private middlewares(): void {
         const allowSites = [
-            'http://localhost:4200'
+            'http://localhost:8100'
         ]
         this.express.use(express.json());
         this.express.use(cors({

@@ -9,7 +9,7 @@ class RastreioController {
                 return res.send({error: 'Informe o codigo'});
             }
             await axios.get(`https://www.linkcorreios.com.br/?id=${req.params.rastreioId}`).then(response => {
-                return res.send(new JSDOM(response.data).window.document.querySelectorAll('.singlepost').item(0).outerHTML);
+                return res.send({html: new JSDOM(response.data).window.document.querySelectorAll('.singlepost').item(0).outerHTML});
             }).catch((error: AxiosError) => {
                 // console.error(`There was an error with ${error.config?.url}.`);
                 // console.error(error.toJSON());
